@@ -1,0 +1,2 @@
+rootProject.name = 'file-management-service'
+include 'file-management-service-core','file-management-service-api'
