@@ -1,0 +1,32 @@
+plugins {
+	id 'org.springframework.boot' version "${springBootVersion}"
+}
+
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+	archiveBaseName = "file-management-service-core"
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation project(':file-management-service-core')
+
+	implementation "io.springfox:springfox-boot-starter:${springFoxVersion}"
+	implementation "io.springfox:springfox-swagger2:${springFoxVersion}"
+	implementation "io.springfox:springfox-bean-validators:${springFoxVersion}"
+	implementation "io.springfox:springfox-swagger-ui:${springFoxVersion}"
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+springBoot {
+	buildInfo()
+}
